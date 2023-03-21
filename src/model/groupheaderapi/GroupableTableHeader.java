@@ -1,59 +1,62 @@
 package model.groupheaderapi;
 
-import java.util.*;
-import javax.swing.table.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 /**
  * GroupableTableHeader
  *
- * @version 1.0 10/20/98
+ * @version 1.0 20.10.1998
  * @author Nobuo Tamemasa
  */
-
+@SuppressWarnings("serial")
 public class GroupableTableHeader extends JTableHeader {
+
+    @SuppressWarnings("unused")
     private static final String uiClassID = "GroupableTableHeaderUI";
-    protected Vector columnGroups = null;
+
+    protected List<ColumnGroup> columnGroups = new ArrayList<ColumnGroup>();
 
     public GroupableTableHeader(TableColumnModel model) {
         super(model);
         setUI(new GroupableTableHeaderUI());
         setReorderingAllowed(false);
+        // setDefaultRenderer(new MultiLineHeaderRenderer());
     }
-    public void updateUI(){
+
+    @Override
+    public void updateUI() {
         setUI(new GroupableTableHeaderUI());
     }
 
+    @Override
     public void setReorderingAllowed(boolean b) {
-        reorderingAllowed = false;
+        super.setReorderingAllowed(false);
     }
 
     public void addColumnGroup(ColumnGroup g) {
-        if (columnGroups == null) {
-            columnGroups = new Vector();
-        }
-        columnGroups.addElement(g);
+        columnGroups.add(g);
     }
 
-    public Enumeration getColumnGroups(TableColumn col) {
-        if (columnGroups == null) return null;
-        Enumeration e = columnGroups.elements();
-        while (e.hasMoreElements()) {
-            ColumnGroup cGroup = (ColumnGroup)e.nextElement();
-            Vector v_ret = (Vector)cGroup.getColumnGroups(col,new Vector());
-            if (v_ret != null) {
-                return v_ret.elements();
+    public List<ColumnGroup> getColumnGroups(TableColumn col) {
+        for (ColumnGroup group : columnGroups) {
+            List<ColumnGroup> groups = group.getColumnGroups(col);
+            if (!groups.isEmpty()) {
+                return groups;
             }
         }
-        return null;
+        return Collections.emptyList();
     }
 
     public void setColumnMargin() {
-        if (columnGroups == null) return;
         int columnMargin = getColumnModel().getColumnMargin();
-        Enumeration e = columnGroups.elements();
-        while (e.hasMoreElements()) {
-            ColumnGroup cGroup = (ColumnGroup)e.nextElement();
-            cGroup.setColumnMargin(columnMargin);
+        for (ColumnGroup group : columnGroups) {
+            group.setColumnMargin(columnMargin);
         }
     }
 
