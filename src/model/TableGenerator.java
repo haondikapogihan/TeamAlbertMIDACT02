@@ -7,15 +7,18 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
+import java.util.List;
 
 public class TableGenerator {
 
+    private final List<Entity> entitiesList = new EntitiesList().getEntities();
     private final String[] header1 = {"Just Finished Event","Variables","Attributes","Statistical Accumulators"};
     private final String[] header2 = {"Entity No.","Time t","Event type","Q(t)","B(t)","Arrival Time in queue",
     "Arrival Time in Service","P","N","ΣWQ","WQ*","ΣTS","TS*","∫","Q*","∫B"};
     private DefaultTableModel tableModel;
     private JTable table;
 
+    //Constructor that initializes the Grouped Headers
     public TableGenerator(){
         tableModel = new DefaultTableModel();
         tableModel.setColumnIdentifiers(header2);
@@ -63,6 +66,24 @@ public class TableGenerator {
         this.table = table;
     }
 
+    //in progress
+    public void generateTable(double timeLimit){
+        double time = 0;
+        int inQueue = 0;
+        int inService = 0;
+        String whoInQueue = "";
+        String whoInService = "";
+        int finished = 0;
+        int queuePassers = 0;
+        double totalWaitTime = 0;
+        double highestWT = 0;
+        double totalSysTime = 0;
+        double highestST = 0;
+
+        for(int i = 0; time < timeLimit; i++){
+        }
+    }
+
     public void addRow(Object[] row){
         DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         tableModel.addRow(row);
@@ -71,5 +92,6 @@ public class TableGenerator {
     public JTable getTable(){
         return table;
     }
+
 
 }
