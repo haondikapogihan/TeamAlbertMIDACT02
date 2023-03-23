@@ -2,12 +2,10 @@ package model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EntitiesList {
-    private final List<Entity> entities = new ArrayList<>();
+    private final LinkedList<Entity> entities = new LinkedList<>();
 
     public EntitiesList(){
         readCSV();
@@ -34,7 +32,7 @@ public class EntitiesList {
         }
     }
 
-    public List<Entity> getEntities(){
+    public LinkedList<Entity> getEntities(){
         return entities;
     }
 }

@@ -3,6 +3,11 @@ package controller;
 import model.TableGenerator;
 import view.AppView;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+
 public class AppController {
 
     private TableGenerator tg;
@@ -11,12 +16,22 @@ public class AppController {
     public AppController(){
         tg = new TableGenerator();
         view = new AppView();
+        view.addListener(new buttonAction());
+    }
 
-        //testing
-        Object[] newRow = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-        for(int i = 0; i < 5; i++){
-            tg.addRow(newRow);
+    class buttonAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                tg.generateTable(Double.parseDouble(view.getInput()));
+                view.addTable(tg.getTable());
+                view.setLocationRelativeTo(null);
+                view.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                view.setUndecorated(true);
+            }catch(NumberFormatException nfex){
+                view.setErrMessage("Please input a valid number");
+            }
         }
-        view.addTable(tg.getTable());
     }
 }

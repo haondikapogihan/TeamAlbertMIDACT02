@@ -6,14 +6,15 @@ public class Entity {
     private double arvlTime;
     private double iarvlTime;
     private double serviceTime;
-    private final double dprtTime;
+    private double waitingTime = 0;
+    private double dprtTime;
 
     public Entity(int entityNo, double arvlTime, double iarvlTime, double serviceTime){
         this.entityNo = entityNo;
         this.arvlTime = arvlTime;
         this.iarvlTime = iarvlTime;
         this.serviceTime = serviceTime;
-        this.dprtTime = arvlTime + serviceTime;
+        this.dprtTime = arvlTime + serviceTime + waitingTime;
     }
 
     //setters
@@ -31,6 +32,11 @@ public class Entity {
 
     public void setServiceTime(double serviceTime){
         this.serviceTime = serviceTime;
+    }
+
+    public void setWaitingTime(double waitingTime){
+        this.waitingTime = waitingTime;
+        this.dprtTime = dprtTime + waitingTime;
     }
 
     //getters
