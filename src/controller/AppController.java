@@ -1,6 +1,6 @@
 package controller;
 
-import model.TableGenerator;
+import model.TableGenerator2;
 import view.AppView;
 
 import javax.swing.*;
@@ -10,11 +10,11 @@ import java.math.BigDecimal;
 
 public class AppController {
 
-    private TableGenerator tg;
+    private TableGenerator2 tg;
     private AppView view;
 
     public AppController(){
-        tg = new TableGenerator();
+        tg = new TableGenerator2();
         view = new AppView();
         view.addListener(new buttonAction());
     }
@@ -28,7 +28,6 @@ public class AppController {
                 view.addTable(tg.getTable());
                 view.setLocationRelativeTo(null);
                 view.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                view.setUndecorated(true);
             }catch(NumberFormatException nfex){
                 view.setErrMessage("Please input a valid number");
             }

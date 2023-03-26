@@ -6,9 +6,11 @@ import java.util.*;
 
 public class EntitiesList {
     private final LinkedList<Entity> entities = new LinkedList<>();
+    private final HashMap<Double,Entity> arrivalTimeAttr = new HashMap<>();
 
     public EntitiesList(){
         readCSV();
+        loadArrivalTimeAttr();
     }
 
     private void readCSV(){
@@ -32,7 +34,17 @@ public class EntitiesList {
         }
     }
 
+    private void loadArrivalTimeAttr(){
+        for(Entity entity: entities){
+            arrivalTimeAttr.put(entity.getArrivalTime(),entity);
+        }
+    }
+
     public LinkedList<Entity> getEntities(){
         return entities;
+    }
+
+    public HashMap<Double, Entity> getArrivalTimeAttr(){
+        return arrivalTimeAttr;
     }
 }
