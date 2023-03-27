@@ -22,9 +22,11 @@ public class AppController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            tg = new TableGenerator();
             try{
                 tg.generateTable(Double.parseDouble(view.getInput()));
                 view.addTable(tg.getTable());
+                view.showTable();
                 view.setLocationRelativeTo(null);
                 view.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }catch(NumberFormatException nfex){

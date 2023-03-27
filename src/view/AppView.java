@@ -13,6 +13,7 @@ public class AppView extends JFrame{
     private JLabel errMessage;
 
     public AppView(){
+        spForTable.setVisible(false);
         this.setTitle("Single-channel Queueing System with Statistical Accumulators");
         this.setContentPane(mainPanel);
         this.setSize(new Dimension(580,300));
@@ -31,6 +32,10 @@ public class AppView extends JFrame{
 
     public void setErrMessage(String errMessage) {
         this.errMessage.setText(errMessage);
+    }
+
+    public void showTable(){
+        spForTable.setVisible(true);
     }
 
     public String getInput(){
