@@ -1,20 +1,19 @@
 package controller;
 
-import model.TableGenerator2;
+import model.TableGenerator;
 import view.AppView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
 
 public class AppController {
 
-    private TableGenerator2 tg;
+    private TableGenerator tg;
     private AppView view;
 
     public AppController(){
-        tg = new TableGenerator2();
+        tg = new TableGenerator();
         view = new AppView();
         view.addListener(new buttonAction());
     }
