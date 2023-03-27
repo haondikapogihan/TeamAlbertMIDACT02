@@ -16,7 +16,7 @@ public class AppView extends JFrame{
         spForTable.setVisible(false);
         this.setTitle("Single-channel Queueing System with Statistical Accumulators");
         this.setContentPane(mainPanel);
-        this.setSize(new Dimension(580,300));
+        this.setSize(new Dimension(510,270));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);

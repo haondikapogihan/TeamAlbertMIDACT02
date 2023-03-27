@@ -9,7 +9,7 @@
     <border type="none"/>
     <children>
       <grid id="b447b" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="7" left="7" bottom="7" right="7"/>
+        <margin top="7" left="7" bottom="16" right="7"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -34,7 +34,7 @@
             </constraints>
             <properties>
               <editable value="false"/>
-              <text value="Hello!&#10;&#10;This is a simple single queueing simulation with Statistical Accumulators."/>
+              <text value="Greetings Hooman!&#10;&#10;This is a simple single queueing simulation with Statistical Accumulators. Input your desired time limit and click generate. Take note that the time limit can only be at most 46.02 for this simple simulation"/>
             </properties>
           </component>
           <grid id="7c8af" layout-manager="GridLayoutManager" row-count="4" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
