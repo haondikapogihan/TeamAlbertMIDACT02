@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 public class AppView extends JFrame{
     private JPanel mainPanel;
     private JScrollPane spForTable;
-    private JTextPane textPane;
     private JButton genBtn;
     private JTextField inputField;
     private JLabel errMessage;

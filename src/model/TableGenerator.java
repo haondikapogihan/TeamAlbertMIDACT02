@@ -9,6 +9,9 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 import java.util.*;
 
+/**
+ * Generates the table needed for displaying the values from the simulation
+ */
 public class TableGenerator {
 
     private final EntitiesList entitiesList = new EntitiesList();

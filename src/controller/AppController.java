@@ -18,6 +18,7 @@ public class AppController {
         view.addListener(new buttonAction());
     }
 
+    //the action for the generate button in the UI
     class buttonAction implements ActionListener{
 
         @Override
@@ -29,7 +30,7 @@ public class AppController {
                 view.showTable();
                 view.setLocationRelativeTo(null);
                 view.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            }catch(NumberFormatException nfex){
+            }catch(NumberFormatException nfex){ //the error when type casting non-integers
                 view.setErrMessage("Please input a valid number");
             }
         }

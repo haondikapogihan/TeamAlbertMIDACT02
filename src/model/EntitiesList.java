@@ -4,15 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * Contains a list of Entities from the given data (csv file)
+ * The Entities are contained in a LinkedList
+ */
 public class EntitiesList {
     private final LinkedList<Entity> entities = new LinkedList<>();
-    private final HashMap<Double,Entity> arrivalTimeAttr = new HashMap<>();
 
     public EntitiesList(){
         readCSV();
-        loadArrivalTimeAttr();
     }
 
+    //helper method for reading (and loading) the data needed in csv format
     private void readCSV(){
         try{
             File source = new File("./res/entity_details.csv");
@@ -34,17 +37,7 @@ public class EntitiesList {
         }
     }
 
-    private void loadArrivalTimeAttr(){
-        for(Entity entity: entities){
-            arrivalTimeAttr.put(entity.getArrivalTime(),entity);
-        }
-    }
-
     public LinkedList<Entity> getEntities(){
         return entities;
-    }
-
-    public HashMap<Double, Entity> getArrivalTimeAttr(){
-        return arrivalTimeAttr;
     }
 }

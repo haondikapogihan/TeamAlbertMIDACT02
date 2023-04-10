@@ -1,5 +1,17 @@
 package model;
 
+/**
+ * The Entity class
+ *
+ * Follows the entity structure given from the data
+ * having the attributes:
+ * -entity number
+ * -arrival time
+ * -interarrival time
+ * -service time
+ * -departure time
+ * -waiting time
+ */
 public class Entity {
 
     private int entityNo;
