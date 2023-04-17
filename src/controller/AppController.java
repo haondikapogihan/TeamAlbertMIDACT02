@@ -1,5 +1,6 @@
 package controller;
 
+import model.Metrics;
 import model.TableGenerator;
 import view.AppView;
 
@@ -11,6 +12,7 @@ public class AppController {
 
     private TableGenerator tg;
     private AppView view;
+    private Metrics metrics;
 
     public AppController(){
         tg = new TableGenerator();
@@ -33,6 +35,7 @@ public class AppController {
             }catch(NumberFormatException nfex){ //the error when type casting non-integers
                 view.setErrMessage("Please input a valid number");
             }
+
         }
     }
 }
