@@ -10,6 +10,15 @@ public class AppView extends JFrame{
     private JButton genBtn;
     private JTextField inputField;
     private JLabel errMessage;
+    private JLabel avgWaitingTime;
+    private JLabel avgIAT;
+    private JLabel probOfWaiting;
+    private JLabel propOfIdleTime;
+    private JLabel avgServiceTime;
+    private JLabel avgTimeInSystem;
+    private JLabel avgWaitingTimeInQueue;
+    private JLabel avgTimeLengthOfQueue;
+    private JLabel avgTimeLengthOfResource;
 
     public AppView(){
         spForTable.setVisible(false);
@@ -31,6 +40,20 @@ public class AppView extends JFrame{
 
     public void setErrMessage(String errMessage) {
         this.errMessage.setText(errMessage);
+    }
+
+    public void setMetrics(double avgWaitingTime, double avgIAT, double probOfWaiting, double propOfIdleTime,
+                           double avgServiceTime, double avgTimeInSystem, double avgWaitingTimeInQueue,
+                           double avgTimeLengthOfQueue, double avgTimeLengthOfResource){
+        this.avgWaitingTime.setText("Avg. Waiting Time: " + avgWaitingTime);
+        this.avgIAT.setText("Avg. Interarrival Time: " + avgIAT);
+        this.probOfWaiting.setText("Probability of Waiting: "+ probOfWaiting);
+        this.propOfIdleTime.setText("Proportion of Idle Time: "+ propOfIdleTime);
+        this.avgServiceTime.setText("Avg. Service Time: "+ avgServiceTime);
+        this.avgTimeInSystem.setText("Avg. Time in System: "+ avgTimeInSystem);
+        this.avgWaitingTimeInQueue.setText("Avg. Waiting Time in Queue: "+ avgWaitingTimeInQueue);
+        this.avgTimeLengthOfQueue.setText("Avg. Time Length of Queue: "+ avgTimeLengthOfQueue);
+        this.avgTimeLengthOfResource.setText("Avg. Time Length of Resource: "+ avgTimeLengthOfResource);
     }
 
     public void showTable(){
