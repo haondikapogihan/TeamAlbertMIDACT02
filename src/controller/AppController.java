@@ -1,5 +1,7 @@
 package controller;
 
+import com.sun.jdi.request.MethodEntryRequest;
+import model.MetricsSolver;
 import model.TableGenerator;
 import view.AppView;
 
@@ -27,10 +29,14 @@ public class AppController {
             try{
                 tg.generateTable(Double.parseDouble(view.getInput()));
                 view.addTable(tg.getTable());
+                view.setMetrics(MetricsSolver.avgWaitingTime,MetricsSolver.avgIAT,MetricsSolver.probOfWaiting,
+                        MetricsSolver.propOfIdleTime, MetricsSolver.avgServiceTime, MetricsSolver.avgSystemTime,
+                        MetricsSolver.avgQueueWaitingTime,MetricsSolver.avgTimeLenOfQueue,MetricsSolver.avgTimeLenOfResource);
                 view.showTable();
                 view.setLocationRelativeTo(null);
                 view.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }catch(NumberFormatException nfex){ //the error when type casting non-integers
+                nfex.printStackTrace();
                 view.setErrMessage("Please input a valid number");
             }
         }

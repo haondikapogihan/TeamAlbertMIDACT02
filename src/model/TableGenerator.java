@@ -21,6 +21,7 @@ public class TableGenerator {
             "Arrival Time in Service","P","N","ΣWQ","WQ*","ΣTS","TS*","∫Q","Q*","∫B"};
     private DefaultTableModel tableModel;
     private JTable table;
+    private final MetricsSolver metricsSolver = new MetricsSolver();
 
     private void init(){
         tableModel = new DefaultTableModel(){
@@ -89,6 +90,15 @@ public class TableGenerator {
             }else{
                 //add the ending values
                 Object[] lastRow = tableSimulation.get(tableSimulation.indexOf(values)-1);
+                metricsSolver.solveAvgWaitingTime(lastRow);
+                metricsSolver.solveProbOfWaiting(tableSimulation,timeLimit);
+                metricsSolver.solvePropOfIdleTime(tableSimulation,timeLimit);
+                metricsSolver.solveAvgServiceTime(entitiesList.getEntities(),timeLimit);
+                metricsSolver.solveAvgIAT(entitiesList.getEntities(),timeLimit);
+                metricsSolver.solveAvgQueueWaitingTime(tableSimulation,timeLimit);
+                metricsSolver.solveAvgSystemTime(lastRow);
+                metricsSolver.solveAvgTimeLenOfQueue(lastRow,timeLimit);
+                metricsSolver.solveAvgTimeLenOfResource(lastRow,timeLimit);
                 lastRow[0] = "-";
                 lastRow[1] = timeLimit;
                 lastRow[2] = "End";

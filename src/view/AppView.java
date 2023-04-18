@@ -42,9 +42,9 @@ public class AppView extends JFrame{
         this.errMessage.setText(errMessage);
     }
 
-    public void setMetrics(double avgWaitingTime, double avgIAT, double probOfWaiting, double propOfIdleTime,
-                           double avgServiceTime, double avgTimeInSystem, double avgWaitingTimeInQueue,
-                           double avgTimeLengthOfQueue, double avgTimeLengthOfResource){
+    public void setMetrics(String avgWaitingTime, String avgIAT, String probOfWaiting, String propOfIdleTime,
+                           String avgServiceTime, String avgTimeInSystem, String avgWaitingTimeInQueue,
+                           String avgTimeLengthOfQueue, String avgTimeLengthOfResource){
         this.avgWaitingTime.setText("Avg. Waiting Time: " + avgWaitingTime);
         this.avgIAT.setText("Avg. Interarrival Time: " + avgIAT);
         this.probOfWaiting.setText("Probability of Waiting: "+ probOfWaiting);
